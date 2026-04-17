@@ -1,11 +1,47 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Payslip Project</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payslip Generator | Company XYZ</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>My Payslip Project</h1>
-  <p>Click below to download payslip:</p>
-  <a href="payslip.py">Download Payslip</a>
+    <div class="container">
+        <header>
+            <h1>Payroll Portal</h1>
+            <p>Generate employee payslips instantly</p>
+        </header>
+
+        <form action="/generate-pdf" method="POST" class="payslip-form">
+            <div class="form-group">
+                <label for="emp_id">Employee ID</label>
+                <input type="text" id="emp_id" name="emp_id" placeholder="e.g. EMP101" required>
+            </div>
+
+            <div class="form-group">
+                <label for="emp_name">Full Name</label>
+                <input type="text" id="emp_name" name="emp_name" placeholder="John Doe" required>
+            </div>
+
+            <div class="row">
+                <div class="form-group">
+                    <label for="basic">Basic Salary ($)</label>
+                    <input type="number" id="basic" name="basic" step="0.01" min="0" placeholder="5000.00" required>
+                </div>
+                <div class="form-group">
+                    <label for="allowances">Allowances ($)</label>
+                    <input type="number" id="allowances" name="allowances" step="0.01" min="0" placeholder="500.00" required>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="deductions">Total Deductions ($)</label>
+                <input type="number" id="deductions" name="deductions" step="0.01" min="0" placeholder="200.00" required>
+            </div>
+
+            <button type="submit" class="btn-generate">Generate PDF Payslip</button>
+        </form>
+    </div>
 </body>
 </html>
